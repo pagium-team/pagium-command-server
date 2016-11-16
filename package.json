@@ -1,0 +1,29 @@
+{
+  "name": "pagium-server",
+  "version": "0.0.1",
+  "description": "pagium server",
+  "main": "index.js",
+  "preferGlobal": true,
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pagium-team/pagium-command-server"
+  },
+  "keywords": [
+    "pagium",
+    "server"
+  ],
+  "author": "pagium-team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pagium-team/pagium-command-server/issues"
+  },
+  "homepage": "https://github.com/pagium-team/pagium-command-server#readme",
+  "dependencies": {
+    "body-parser": "1.0.2",
+    "express": "^4.14.0",
+    "fs": "0.0.1-security"
+  }
+}

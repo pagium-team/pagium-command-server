@@ -8,19 +8,27 @@
  * @constructor
  */
 module.exports = {
-	/**
-      * web 服务器
-      * @property page 
-      * @type Object
-      * @static
-      */
+      /**
+       * web 服务器
+       * @property page 
+       * @type Object
+       * @static
+       */
 	webServer: require("./webServer"),
 
 	/**
-      * web 服务器
-      * @property page 
-      * @type Object
-      * @static
-      */
-	fileWatcher: require("./fileWatcher")
+       * web 服务器
+       * @property page 
+       * @type Object
+       * @static
+       */
+	fileWatcher: require("./fileWatcher"),
+
+      /**
+       * liveReload
+       * @property page 
+       * @type Object
+       * @static
+       */
+      liveReloader: require("./liveReloader")
 }

@@ -21,7 +21,7 @@ var run = function(projectPath, callback) {
 		    persistent: true, // 设为false时，不会阻塞进程。
 		    recursive: true,
 		    encoding: "utf8"
-		}, function(event, filename, a) {
+		}, function(event, filename) {
 			if (event == "change" && !isDoingChange) {
 				isDoingChange = true;
 				callback && callback(function() {
@@ -29,6 +29,8 @@ var run = function(projectPath, callback) {
 				});
 			}
 		});
+
+		console.log("watch: " + watchPaths[i].green);
 	}
 }
 

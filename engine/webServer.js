@@ -2,6 +2,8 @@
 
 var express = require("express");
 var bodyParser = require("body-parser");
+var livereload = require('livereload');
+
 
 /**
  * 程序主入口
@@ -12,6 +14,11 @@ var bodyParser = require("body-parser");
 var run = function(projectPath) {
 	var app = express();
 	app.use(express.static(projectPath + "/output/")); // 静态资源目录
+	var server = livereload.createServer();
+	server.watch(projectPath + "/output");
+	// app.use(require('connect-livereload')({
+	// 	port: 35729
+	// }));
 	app.use(bodyParser.json());
 	app.use(bodyParser.urlencoded());
 	app.set("port", process.env.PORT || 8800); // 端口
@@ -19,6 +26,8 @@ var run = function(projectPath) {
         console.log("[%s] pagium server listening on port %d",
             app.get("env").toUpperCase(), app.get("port"));
     });
+
+
 }
 
 /**

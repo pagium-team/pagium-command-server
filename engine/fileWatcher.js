@@ -12,7 +12,7 @@ var isDoingChange = false;
  */
 var run = function(projectPath, callback) {
 	var watchPaths = [
-		projectPath + "/views/",
+		projectPath + "/views/products/",
 		projectPath + "/components/"
 	];
 

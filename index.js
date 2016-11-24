@@ -1,5 +1,6 @@
 "use strict";
 
+var colors = require("colors");
 var webServer = require("./engine").webServer;
 var fileWatcher = require("./engine").fileWatcher;
 var liveReloader = require("./engine").liveReloader;

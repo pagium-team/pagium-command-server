@@ -32,11 +32,13 @@ var run = function(projectPath) {
 
 	var port = process.env.PORT || 3330;
 	portInUse(port, function(isUsed) {
-		if (isUsed && globalConfig.__server) {
-			globalConfig.__server.close();
-		} else {
+		if (!isUsed && !globalConfig.__server) {
 			var app = express();
-			app.use(express.static(projectPath + "/output/")); // 静态资源目录
+			// app.use("/pagium/", express.static(projectPath)); // 静态资源目录
+			app.use("/pagium/:id/", function(req, res, next) {
+				return express.static(projectPath + "/" + req.params.id + "/output/")(req, res, next);
+			}); // 静态资源目录
+			app.use("/", express.static(projectPath)); // 静态资源目录
 			app.use(bodyParser.json());
 			app.use(bodyParser.urlencoded());
 			app.set("port", port); // 端口
@@ -44,6 +46,8 @@ var run = function(projectPath) {
 		        console.log("[%s] pagium server listening on port " + "%d".green,
 		            app.get("env").toUpperCase(), app.get("port"));
 		    });
+		} else {
+			console.log(port + " is already used !!");
 		}
 	});
 }
